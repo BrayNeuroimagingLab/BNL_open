@@ -13,7 +13,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from statsmodels.stats.multitest import multipletests
 
-os.chdir('/Users/ryanntansey/Dropbox/Aim2_Age_FinalScripts/')
+os.chdir('/Users/ryanntansey/code_folder/')
 from study_funcs import pcorr_perm, generate_ROI_ts, reg_ts
 
 # =============================================================================
