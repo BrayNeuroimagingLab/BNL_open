@@ -12,28 +12,28 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from statsmodels.stats.multitest import multipletests
 
-os.chdir('/Users/ryanntansey/Dropbox/Aim2_Age_FinalScripts/')
+os.chdir('/Users/ryanntansey/code_folder/')
 from study_funcs import pcorr_perm, percent_sig_voxels
 
 # =============================================================================
 # Load variables for analysis
 # =============================================================================
-behav_data = pd.read_pickle('/Users/ryanntansey/Dropbox/Aim2_Age_FinalScripts/behav_data_Jul29-2022.pkl')
-gm_mask = '/Users/ryanntansey/Dropbox/parcellations/HarvardOxford_atlas/HarvardOxford-cort-maxprob-thr25-2mm_Mask.nii.gz'
-tmasks = pd.read_pickle('/Users/ryanntansey/Dropbox/Aim2_Age_FinalScripts/tmasks.pkl')
+behav_data = pd.read_pickle('/Users/ryanntansey/../behav_data_Jul29-2022.pkl')
+gm_mask = '/Users/ryanntansey/../HarvardOxford-cort-maxprob-thr25-2mm_Mask.nii.gz'
+tmasks = pd.read_pickle('/Users/ryanntansey/../tmasks.pkl')
 
 # ROIs
-rhFFA = '/Users/ryanntansey/Documents/visfAtlas/nifti_volume/visfAtlas_faces/rh_FFA_2mm.nii'
-lhFFA = '/Users/ryanntansey/Documents/visfAtlas/nifti_volume/visfAtlas_faces/lh_FFA_flip_2mm.nii'
+rhFFA = '/Users/ryanntansey/../rh_FFA_2mm.nii'
+lhFFA = '/Users/ryanntansey/../lh_FFA_flip_2mm.nii'
 
-rhSTS = '/Users/ryanntansey/Documents/SENSAAS/SENSAAS_STS3_and_STS4_rh.nii'
-lhSTS = '/Users/ryanntansey/Documents/SENSAAS/SENSAAS_STS3_and_STS4.nii'
+rhSTS = '/Users/ryanntansey/../SENSAAS_STS3_and_STS4_rh.nii'
+lhSTS = '/Users/ryanntansey/../SENSAAS_STS3_and_STS4.nii'
 
 
 # =============================================================================
 # Percent GM associated with shared signal --> create DataFrame
 # =============================================================================
-rhFFA_zmaps = glob.glob('/Users/ryanntansey/Documents/VSDevel_final_preproc_fMRI/FEAT_results_rhFFA/*_rhFFA.feat/stats/zstat1.nii.gz')
+rhFFA_zmaps = glob.glob('/Users/ryanntansey/../FEAT_results_rhFFA/*_rhFFA.feat/stats/zstat1.nii.gz')
 rhFFA_gm_perc = [percent_sig_voxels(i, gm_mask, 1.6449) for i in rhFFA_zmaps]
 rhFFA_perc_data = pd.DataFrame()
 rhFFA_perc_data['AgeAtScan'] = behav_data['AgeAtScan']
@@ -43,7 +43,7 @@ rhFFA_perc_data['Sex'] = rhFFA_perc_data['Sex'].replace(to_replace = 'F', value 
 rhFFA_perc_data['Sex'] = rhFFA_perc_data['Sex'].replace(to_replace = 'M', value = 1)
 rhFFA_perc_data['PercentGM'] = rhFFA_gm_perc 
 
-lhFFA_zmaps = glob.glob('/Users/ryanntansey/Documents/VSDevel_final_preproc_fMRI/FEAT_results_lhFFA/*_lhFFA.feat/stats/zstat1.nii.gz')
+lhFFA_zmaps = glob.glob('/Users/ryanntansey/../FEAT_results_lhFFA/*_lhFFA.feat/stats/zstat1.nii.gz')
 lhFFA_gm_perc = [percent_sig_voxels(i, gm_mask, 1.6449) for i in lhFFA_zmaps]
 lhFFA_perc_data = pd.DataFrame()
 lhFFA_perc_data['AgeAtScan'] = behav_data['AgeAtScan']
@@ -54,7 +54,7 @@ lhFFA_perc_data['Sex'] = lhFFA_perc_data['Sex'].replace(to_replace = 'M', value 
 lhFFA_perc_data['PercentGM'] = lhFFA_gm_perc 
 
 
-rhSTS_zmaps = glob.glob('/Users/ryanntansey/Documents/VSDevel_final_preproc_fMRI/FEAT_results_rhSTS/*_rhSTS.feat/stats/zstat1.nii.gz')
+rhSTS_zmaps = glob.glob('/Users/ryanntansey/../FEAT_results_rhSTS/*_rhSTS.feat/stats/zstat1.nii.gz')
 rhSTS_gm_perc = [percent_sig_voxels(i, gm_mask, 1.6449) for i in rhSTS_zmaps]
 rhSTS_perc_data = pd.DataFrame()
 rhSTS_perc_data['AgeAtScan'] = behav_data['AgeAtScan']
@@ -64,7 +64,7 @@ rhSTS_perc_data['Sex'] = rhSTS_perc_data['Sex'].replace(to_replace = 'F', value 
 rhSTS_perc_data['Sex'] = rhSTS_perc_data['Sex'].replace(to_replace = 'M', value = 1)
 rhSTS_perc_data['PercentGM'] = rhSTS_gm_perc 
 
-lhSTS_zmaps = glob.glob('/Users/ryanntansey/Documents/VSDevel_final_preproc_fMRI/FEAT_results_lhSTS/*_lhSTS.feat/stats/zstat1.nii.gz')
+lhSTS_zmaps = glob.glob('/Users/ryanntansey/../*_lhSTS.feat/stats/zstat1.nii.gz')
 lhSTS_gm_perc = [percent_sig_voxels(i, gm_mask, 1.6449) for i in lhSTS_zmaps]
 lhSTS_perc_data = pd.DataFrame()
 lhSTS_perc_data['AgeAtScan'] = behav_data['AgeAtScan']
