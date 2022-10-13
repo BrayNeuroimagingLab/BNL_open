@@ -19,19 +19,19 @@ from study_funcs import pcorr_perm, generate_ROI_ts, reg_ts
 # =============================================================================
 # Load variables for analysis
 # =============================================================================
-fmri_files = sorted(glob.glob('/Users/ryanntansey/Documents/VSDevel_final_preproc_fMRI/sub-*_ses-*.nii.gz'))
-behav_data = pd.read_pickle('/Users/ryanntansey/Dropbox/Aim2_Age_FinalScripts/behav_data_Jul29-2022.pkl')
+fmri_files = sorted(glob.glob('/Users/ryanntansey/../sub-*_ses-*.nii.gz'))
+behav_data = pd.read_pickle('/Users/ryanntansey/../behav_data_Jul29-2022.pkl')
 subs_names = behav_data.index.values
-tmasks = pd.read_pickle('/Users/ryanntansey/Dropbox/Aim2_Age_FinalScripts/tmasks.pkl')
-motion_dir = '/Users/ryanntansey/Documents/VSDevel_final_preproc_fMRI/Covariates/Motion_Vols/'
+tmasks = pd.read_pickle('/Users/ryanntansey/../tmasks.pkl')
+motion_dir = '/Users/ryanntansey/../Motion_Vols/'
 motion_ext = '_MotionVols.txt'
 
 # ROIs
-rhFFA = '/Users/ryanntansey/Documents/visfAtlas/nifti_volume/visfAtlas_faces/rh_FFA_2mm.nii'
-lhFFA = '/Users/ryanntansey/Documents/visfAtlas/nifti_volume/visfAtlas_faces/lh_FFA_flip_2mm.nii'
+rhFFA = '/Users/ryanntansey/../rh_FFA_2mm.nii'
+lhFFA = '/Users/ryanntansey/../lh_FFA_flip_2mm.nii'
 
-rhSTS = '/Users/ryanntansey/Documents/SENSAAS/SENSAAS_STS3_and_STS4_rh.nii'
-lhSTS = '/Users/ryanntansey/Documents/SENSAAS/SENSAAS_STS3_and_STS4.nii'
+rhSTS = '/Users/ryanntansey/../SENSAAS_STS3_and_STS4_rh.nii'
+lhSTS = '/Users/ryanntansey/../SENSAAS_STS3_and_STS4.nii'
 
 # =============================================================================
 # Generate the leave-one-out group average time courses (w/ standardizing
