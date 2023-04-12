@@ -175,7 +175,7 @@ pal = sns.color_palette('viridis', n_colors = 10)
 
 
 # =============================================================================
-# FIGURES - figure 4
+# FIGURES - figure 5
 # =============================================================================
 fig, subax = plt.subplots(2, 2, sharex = True, sharey = True, figsize = (10,8))
 lhFFA_perc_fig = sns.regplot(ax = subax[0,0], x = lhFFA_perc_data['AgeAtScan'], y = lhFFA_perc_data['PercentGM'], color = pal[0], ci = None)
