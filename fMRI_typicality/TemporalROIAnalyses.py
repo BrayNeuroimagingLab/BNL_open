@@ -306,3 +306,5 @@ subax[1,3].spines.top.set_visible(False)
 subax[1,3].text(4.2, 4.6, 'rho = ' + '%.4f'%(rhSTS_rstd_r))
 subax[1,3].text(4.2, 4.2, 'p = ' + '%.4f'%(rhSTS_rstd_p))
 
+
+
