@@ -4,13 +4,16 @@
 Created on Wed Aug  3 12:06:14 2022
 
 @author: ryanntansey
+
+updated: January 17th, 2023
+added pairwise_dice
+
 """
 import numpy as np
 import nibabel as nib 
 import pandas as pd
 from datetime import datetime
 from nilearn.maskers import NiftiLabelsMasker
-from nilearn.maskers import MultiNiftiMasker
 from nilearn.masking import apply_mask
 from pingouin import partial_corr, corr
 from statsmodels.tools.tools import add_constant
@@ -345,5 +348,49 @@ def percent_sig_voxels(img, mask, threshold):
     return percent_sig
 
 
+###############################################################################
+
+
+def pairwise_dice(img_list, mask, thres = 1.6449):
+    
+    """
+    Parameters
+    ----------
+    
+    img_list : list
+        List of all the .nii images that you want to compute DSC for - will do
+        all pairs.
+        
+    mask : str
+        String of the location of the mask NIFTI.
+        
+    thres : float
+        Threshold above which to count a voxel as "active" (will binarize and 
+        calculate the DSC from these binarized images).
+    
+    """
+
+    dsc_list = []
+    print('Started at: ' + datetime.now().strftime('%H:%M:%S'))
+
+    for i in list(range(len(img_list))):
+        for j in list(range(len(img_list))):
+        
+            if j <= i:
+                pass
+        
+            else:
+                x_img = apply_mask(img_list[i], mask)
+                y_img = apply_mask(img_list[j], mask)
+                x_img_bool = x_img > thres
+                y_img_bool = y_img > thres
+                denom = sum(x_img_bool) + sum(y_img_bool)
+                numer = 2 * (sum(x_img_bool * y_img_bool))
+                dsc = numer / denom
+                dsc_list.append(dsc)
+                
+    print('Finished at: ' + datetime.now().strftime('%H:%M:%S'))    
+             
+    return dsc_list
 
 
