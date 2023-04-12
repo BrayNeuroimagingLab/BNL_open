@@ -224,7 +224,7 @@ pal = sns.color_palette('viridis', n_colors = 10)
 
 
 # =============================================================================
-# FIGURES - sfigure 3
+# FIGURES - figure 4
 # =============================================================================
 fig, subax = plt.subplots(2, 4, sharex = True, sharey = True, figsize = (15,8))
 lhFFA_beta_fig = sns.regplot(ax = subax[0,0], x = lhFFA_data['AgeAtScan'], y = lhFFA_data['Beta'], color = pal[0], ci = None)
