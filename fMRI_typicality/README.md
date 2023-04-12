@@ -1,4 +1,4 @@
-This is the GitHub repository for the code from Tansey et al. (2023) "Functional MRI responses to naturalistic stimuli are increasingly typical across early childhood".
+This is the GitHub repository for the code from Tansey et al. (2023) "Functional MRI responses to naturalistic stimuli are increasingly typical across early childhood."
 
 There are 4 scripts used in this manuscript:
 1) study_funcs.py -> the functions written for these analyses that the other Python scripts call on
