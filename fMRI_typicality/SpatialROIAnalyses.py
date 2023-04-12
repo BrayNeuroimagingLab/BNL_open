@@ -218,3 +218,5 @@ subax[1,1].spines.right.set_visible(False)
 subax[1,1].spines.top.set_visible(False)
 subax[1,1].text(4.1, 0.10, 'rho = ' + '%.4f'%(rhSTS_perc_r))
 subax[1,1].text(4.1, 0.085, 'p = ' + '%.4f'%(rhSTS_perc_p))
+
+
