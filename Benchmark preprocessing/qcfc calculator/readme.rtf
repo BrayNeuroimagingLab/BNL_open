@@ -1,0 +1,45 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww20240\viewh14300\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 This program calculates QC-FC\
+\
+\
+1) What is QC-FC\
+QC-FC tells you if edges in your connectome are significantly correlated with motion. Ideally, you\'92d get ~5% (since this program uses p < 0.05), but most likely a bunch of your edges will have a significant correlation. What\'92s a \'93reasonable\'94 amount of motion correlation? Hard to say, maybe 15%.\
+\
+See Ciric et al 2017, and probably some other papers\
+Benchmarking of participant-level confound regression strategies for the control of motion artifact in studies of functional connectivity \
+\
+\
+2) Setup\
+In order to use this, you need a folder with all your connectomes, and a csv file with the average motion of all the connectomes. See the example data\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 The connectomes can be called whatever you want, but they need to be .csv files. The program assumes all .csv files in the connectome folder are connectomes of interest\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+The connectomes must be correlation matrices, where the index column matches the column headers. The names themselves can be whatever you want (e.g., parcel1, parcel2, parcel3; or 1,2,3; or acc, caud, tp) as long as index matches headers\
+\
+In the motion data frame, the columns must be called \'91filename\'92 and \'91avgmotion\'92. The file names have to match the file names in the connectome folder. It\'92s fine if the motion data frame has extra connectomes that are not in the connectome folder, but all connectomes in the connectome folder need to have information in this dataframe\
+\
+\
+3) Running\
+Edit the python script to change the variables at the top\
+\'91connectomefolder\'92 = the folder with all the connectomes\
+motiondf = the csv file with the motion information of each connectome\
+fisherz = whether you want to fisher z transform your data. True or False. I recommend True, but it doesn\'92t really matter\
+\
+Once those are set, just run the script\
+\
+Maybe test it first with only a handful of connectomes, cause the more connectomes, the slower this program will be\
+\
+\
+4) Contact\
+Made by Kirk Graff. kirk.graff@ucalgary.ca\
+I\'92m a crappy programmer; if you are unsatisfied with this script, double your money back\
+\
+}
