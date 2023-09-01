@@ -1,1 +1,0 @@
-These make the figures found in the EEG section of Kirk's thesis. Hopefully most will end up in his EEG paper

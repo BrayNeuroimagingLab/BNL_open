@@ -1,1 +1,0 @@
-Run analyzeconnectomes fingerprint after source localization 8, and you'll get all the individualization data
