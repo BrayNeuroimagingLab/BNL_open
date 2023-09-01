@@ -1,3 +1,3 @@
-Test_EEG_tostart contains the files you need to preprocess 1 EEG connectome, plus some bonus files. Read the readme
+Github is dumb and won't let me upload lots of medium-sized files. I guess it makes sense.
 
-Test_EEG_whendone contains all the files you'll have after successfully preprocessing an EEG connectome
+Email kirk.graff@ucalgary.ca or slbray@ucalgary.ca to get the example data
