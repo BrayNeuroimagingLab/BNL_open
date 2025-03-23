@@ -1,1 +1,1 @@
-Email Kirk Graff (gkirk@wustl.edu) or Signe Bray (slbray@ucalgary.ca) to get data.
+Email Kirk Graff (kirk.graff@ucalgary.ca) or Signe Bray (slbray@ucalgary.ca) to get data.
